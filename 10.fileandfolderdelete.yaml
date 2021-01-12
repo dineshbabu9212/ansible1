@@ -1,0 +1,10 @@
+---
+  - hosts: web 
+    become: yes
+    become_method: sudo 
+    tasks: 
+    - name: delete the file and folder inside the srv 
+      file:
+       state: absent 
+       path: /tmp/srv
+#i hav mentioned satte before the path because file module will think that is file not a dir if we mentione after the path paramaters 

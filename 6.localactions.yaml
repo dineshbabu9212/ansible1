@@ -1,0 +1,11 @@
+---
+  - hosts: all 
+    become: yes
+    become_method: sudo 
+    tasks: 
+    - name: to run on the localhost 
+      local_action:
+       module: file
+       dest: /tmp/test1
+       state: directory
+

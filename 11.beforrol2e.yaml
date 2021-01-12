@@ -1,0 +1,38 @@
+---
+  - hosts: web 
+    become: yes
+    become_method: sudo
+    vars:
+     port_No: 81 
+    tasks: 
+    - name: install the package 
+      yum: 
+       name: "{{ item }}"
+       state: present
+      with_items:
+       - httpd
+       - git
+       - ntp 
+       - vim 
+      when: ansible_os_family == "RedHat" 
+      tags: install
+        
+    - name: copy the index.j2 to file to /var/www/html dir 
+      template: 
+        src: /home/ansadmin/index.j2
+        dest: /var/www/html/index.html
+      notifty: restart httpd service
+      tags: index
+
+    - name: copy the httpd.j2 to file /etc/httpd/conf/httpd.conf
+      template: 
+        src: /home/ansadmin/httpd.j2
+        dest: /etc/httpd/conf/httpd.conf 
+      tags: httpd
+ 
+    handlers:
+     - name: restart httpd service
+       service:
+        name: httpd
+        state: restarted
+        enabled: yes   

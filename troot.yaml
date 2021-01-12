@@ -1,0 +1,12 @@
+---
+- hosts: web 
+  become: yes
+  become_method: sudo
+  tasks: 
+  - name: provding troot access on the server and store the passwd to the user /home directory 
+    user:
+      name: demouser3
+      password: "{{ password | password_hash('sha512') }}"
+      expires: 07012021
+
+      

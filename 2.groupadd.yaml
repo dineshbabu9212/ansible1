@@ -1,0 +1,12 @@
+---
+  - hosts: localhost
+    connection: local
+    tasks: 
+    - name: create the group 
+      group:
+       name: "{{ item }}"
+       state: present
+      with_items:
+       - students
+       - operator
+       - tests

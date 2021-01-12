@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: Expiredate
+      prompt: Pls enter the expire data equal to chage -E
+      private: no 
+    - name:  Maximum
+      prompt: maximumday 
+      private: no  
+      default: 80 
+  tasks: 
+  - name: trooy root given with shell command 
+    shell: | 
+      chage -d {{ ansible_date_time.date }} user1
+      chage -E {{ Expiredate }} user1
+      chage -M {{ Maximum }}  user1
+      chage -l user1
+    register: output
+  - name: debug
+    debug:
+      msg: "{{ output.stdout }}" 

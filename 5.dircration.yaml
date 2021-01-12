@@ -1,0 +1,15 @@
+---
+  - hosts: all
+    become: yes
+    become_method: sudo
+    tasks:
+    - name: crate the directory in the /tmp dir
+      file:
+       dest: /tmp/srv2
+       state: touch
+#state is droctory defins this is directory 
+#state is touch means  it will creat the file instead of dri
+#
+# creat the dir when  os family is not redhat 
+      when: ansible_os_family  == "RedHat"
+

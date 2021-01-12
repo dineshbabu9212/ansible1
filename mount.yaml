@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  vars_prompt:
+    - name: nfsvoulme
+      prompt: enter the nfsvolume name
+      private: no  
+  tasks:
+  - name: copy the fstab withcurnetdate
+    copy:
+      src: /etc/fstab
+      dest: /etc/fstab.{{ansible_date_time.date}}.{{ansible_date_time.time}}
+
+  - name: mount the file system and add the entry in fstab
+    mount:
+      src: "{{ nfsvoulme }}"
+      path: /opt/test
+      fstype: ext4
+      state: mounted
+
+  - name: mount -a check 
+    shell: |
+      mount -a
+    register: mounto
+
+  - name: show the register valuve 
+    debug:
+      msg: "{{ mounto }}"
+      

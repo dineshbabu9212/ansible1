@@ -1,0 +1,7 @@
+---
+  - hosts: all
+    tasks: 
+    - name: setup module 
+      debug:
+       msg: filter module {{ ansible_memory_mb.swap.used }} {{ ansible_env.USER }} {{ ansible_nodename }} , {{ ansible_os_family }} {{ ansible_memtotal_mb }} {{ ansible_default_ipv4.address }}
+

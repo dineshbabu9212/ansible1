@@ -1,0 +1,21 @@
+#When a user logs in, a standard message from /etc/motd3
+#is displayed. Modify
+#that message to welcome the user and display some information about the system
+#like the following:
+#â€¢ IP address
+#â€¢ hostname
+#â€¢ architecture
+#â€¢ processor (count and type)
+#â€¢ free and total memory
+#Gatheiir this information as facts from the host and use a Jinja2 template file to fill in these variables wit#3heir values for your custom /etc/motd.#########
+
+---
+  - hosts: all
+    become: yes
+    become_method: sudo 
+    tasks: 
+    - name: motd configuration 
+      template: 
+       src: motd.j2
+       dest: /etc/motd
+      
