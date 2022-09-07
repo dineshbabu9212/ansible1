@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks:
+
+  - name: Get Change description
+    snow_record_find:
+      username: dinesh12
+      password: "Comnet@9212"
+      instance: dev23907
+      table: change_request
+      query:
+        number: "{{ chg }}"
+    register: new_ci
+    delegate_to: localhost
+
+  - name: print change description
+    debug:
+      msg:
+        - "{{ new_ci }}"
+        - "{{ ST_DATE }}"
+    delegate_to: localhost
