@@ -3,6 +3,13 @@
     gather_facts: no
 
     tasks:
+    - name: check the incident details
+      shell: |
+        cat /etc/os-release
+        hostname
+      register: output
+      delegate_to: "{{ CI_NAME }}"
+
     - name: Update an incident
       snow_record:
          username: dinesh12
@@ -15,5 +22,4 @@
            state: "In Progress"
            assignment_group: "Server Ops Linux"
            assigned_to: "Dinesh shankar"
-      delegate_to: localhost
-
+           work_notes: "{{output.stdout}}"
