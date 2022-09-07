@@ -1,0 +1,27 @@
+---
+  - hosts: localhost
+    gather_facts: no
+
+    tasks:
+     - name: Update an incident
+       servicenow.itsm.incident:
+         instance:
+           host: https://dev23907.service-now.com/
+           username: dinesh12
+           password: Comnet@9212
+     #          host: https://levidev.service-now.com
+         number: "{{ inc_no }}"
+
+         state: "in progress"
+    #     close_code: "Solved (Permanently)"
+    #     close_notes: |
+    #                  "we have rasied the RITM to tools teamRITM1072556 , and alert is disabled
+    #                   As per the Azure recommendation we  have  modified the  fstab entry with uuid instead of mapper ,commented out the /mnt entry and unmounted the /mnt from the server.  "
+        # other:
+        #   work_notes : |
+        #                 "we have rasied the RITM to tools team RITM1130405 to  disabled  alert "
+        #                 "As per the Azure recommendation we  have  modified the  fstab entry with uuid instead of mapper ,commented out the /mnt entry and unmounted the /mnt from the server.  "
+           assignment_group: "Server Ops Linux"
+           assigned_to: "Dinesh Shankar"
+      
+
