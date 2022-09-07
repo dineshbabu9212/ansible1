@@ -3,16 +3,17 @@
     gather_facts: no
 
     tasks:
-     - name: Update an incident
-       servicenow.itsm.incident:
-         instance:
-           host: https://dev23907.service-now.com/
-           username: dinesh12
-           password: Comnet@9212
-         number: "{{ inc_no }}"
-         state: "in progress"
-         assignment_group: "Server Ops Linux"
-         assigned_to: "Dinesh Shankar"
-       delegate_to: localhost
-      
+    - name: Update an incident
+      snow_record:
+         username: dinesh12
+         password: "Comnet@9212"
+         instance: dev23907
+         state: present
+         number: "{{inc_no}}"
+         table: incident
+         data:
+           state: "In Progress"
+           assignment_group: "Server Ops Linux"
+           assigned_to: "Dinesh shankar"
+      delegate_to: localhost
 
