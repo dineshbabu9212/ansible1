@@ -1,0 +1,13 @@
+---
+  - hosts: localhost
+    tasks:
+    - name: Build a schedule for Demo Job Template
+      awx.awx.schedule:
+        controller_host: 'http://139.59.37.96/'
+        controller_password: 'password'
+        controller_username: 'admin'
+        name: 'test template schdeyk'
+        state: present
+        unified_job_template: "Patch"
+        rrule: "DTSTART;TZID=Asia/Kolkata:20220908T212500 RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
+      register: result
