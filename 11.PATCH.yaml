@@ -9,3 +9,8 @@
       file: 
         path: /tmp/{{APP_NAME}}{{ansible_data_time.time}}.txt 
         state: touch
+    - name: Fetching the output 
+      debug: 
+        msg: 
+          - "{{ APP_NAME}}
+          - "{{ ST_DATE }}"
