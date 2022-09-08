@@ -9,5 +9,5 @@
         name: 'test template schdeyk'
         state: present
         unified_job_template: "Patch"
-        rrule: "DTSTART;TZID=Asia/Kolkata:20220908T204800 RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
+        rrule: "DTSTART;TZID=Asia/Kolkata:20220908T204900 RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
       register: result
