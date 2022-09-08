@@ -5,3 +5,7 @@
       package:
         name: httpd
         state: latest
+    - name: create the file 
+      file: 
+        path: /tmp/{{APP_NAME}}{{ansible_data_time.time}}.txt 
+        state: touch
