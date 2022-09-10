@@ -1,5 +1,5 @@
 ---
-  - hosts: "{{APP_NAME}}"
+  - hosts: "{{ APP_NAME }}"
     tasks:
     - name: Patch the {{APP_NAME}} server list
       package:
@@ -7,10 +7,11 @@
         state: latest
     - name: create the file
       file:
-        path: /tmp/{{APP_NAME}}{{ansible_data_time.time}}.txt
+        path: /tmp/{{APP_NAME}}.txt
         state: touch
     - name: Fetching the output
       debug:
         msg:
-          - "{{ APP_NAME}}
-          - "{{ ST_DATE }}"
+          - "{{APP_NAME}}"
+          - "{{ST_DATE}}"
+#####
