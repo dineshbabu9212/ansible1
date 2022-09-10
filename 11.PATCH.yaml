@@ -1,18 +1,18 @@
 ---
-  - hosts: "{{ APP_NAME }}"
+  - hosts: "{{ server_list }}"
     tasks:
-    - name: Patch the {{APP_NAME}} server list
+    - name: Patch the {{server_list}} server list
       package:
         name: vsftpd
         state: latest
     - name: create the file
       file:
-        path: /tmp/{{APP_NAME}}.txt
+        path: /tmp/{{server_list}}.txt
         state: touch
     - name: Fetching the output
       debug:
         msg:
-          - "{{APP_NAME}}"
+          - "{{server_list}}"
           - "{{ST_DATE}}"
 #####
 #####
