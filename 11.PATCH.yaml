@@ -13,6 +13,5 @@
       debug:
         msg:
           - "{{servers_list}}"
-          - "{{ST_DATE}}"
-#####
+          - "{{changeno}}"
 #####
