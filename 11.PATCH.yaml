@@ -16,10 +16,10 @@
 #           - "{{ ST_DATE }}"
 ---
   - hosts: localhost
-     tasks:
-     - name: show the output
+    tasks:
+    - name: show the output
        debug:
         msg:
          - "{{ change_no }}"
          - "{{ date_time }}"
-         - "{{ app_name }}"     
+         - "{{ app_name }}"
