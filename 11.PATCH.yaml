@@ -20,6 +20,6 @@
     - name: show the output
       debug:
         msg:
-         - "{{ change_no }}"
-         - "{{ date_time }}"
-         - "{{ app_name }}"
+         - "{{ CHG_NO }}"
+         - "{{ ST_DATE }}"
+         - "{{ APP_NAME }}"
