@@ -22,4 +22,4 @@
         msg:
          - "{{ servers }}"
          - "{{ changeno }}"
-         - "{{ st_date }}"
+#         - "{{ st_date }}"

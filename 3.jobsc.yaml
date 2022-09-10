@@ -4,25 +4,30 @@
     tasks:
     - name: setiing facts from service now
       set_fact:
-        date: "{{ST_DATE }}"
+        date_time: "{{ST_DATE| replace('-','')|replace(':','')|replace(' ','')}}"
+    - name: get the date and time
+      set_fact:
+        date: "{{ date_time[:8]}}"
+        time: "{{ date_time[8:]}}"
     - name: debug
       debug:
         msg:
-          - "{{ date | type_debug }}"
-          - "{{ date }}"
-          
-    # - name: Build a schedule for Demo Job Template
-    #   awx.awx.schedule:
-    #     controller_host: 'http://139.59.37.96/'
-    #     controller_password: 'password'
-    #     controller_username: 'admin'
-    #     name: 'FROM SNOW {{ CHG_NO }}'
-    #     state: present
-    #     unified_job_template: "Patch"
-    #     rrule: "DTSTART;TZID=US/Central:{{date}}T{{time}} RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
-    #     extra_data:
-    #       servers: "{{ APP_NAME }}"
-    #       changeno: "{{ CHG_NO }}"
-    #       st_date: "{{ST_DATE}}"
-    #
-    #   register: result
+          - "{{ date  }}"
+          - "{{ time }}"
+#          - "{{ date[8:]}}"
+
+    - name: Build a schedule for Demo Job Template
+      awx.awx.schedule:
+        controller_host: 'http://139.59.37.96/'
+        controller_password: 'password'
+        controller_username: 'admin'
+        name: 'FROM SNOW {{ CHG_NO }}'
+        state: present
+        unified_job_template: "Patch"
+        rrule: "DTSTART;TZID=Asia/Kolkata:{{date}}T{{time}} RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
+        extra_data:
+          servers: "{{ APP_NAME }}"
+          changeno: "{{ CHG_NO }}"
+#          st_date: "{{ST_DATE}}"
+
+      register: result
