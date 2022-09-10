@@ -18,7 +18,7 @@
   - hosts: localhost
     tasks:
     - name: show the output
-       debug:
+      debug:
         msg:
          - "{{ change_no }}"
          - "{{ date_time }}"
