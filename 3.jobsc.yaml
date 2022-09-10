@@ -6,8 +6,20 @@
         controller_host: 'http://139.59.37.96/'
         controller_password: 'password'
         controller_username: 'admin'
-        name: 'test template schdeyk'
+        name: 'FROM SNOW {{ CHG_NO }}'
         state: present
         unified_job_template: "Patch"
         rrule: "DTSTART;TZID=Asia/Kolkata:{{date}}T{{time}} RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
       register: result
+    - name: store the value from snow 
+      set_fact: 
+        change_no: "{{ CHG_NO }}"
+        date_time: "{{ST_DATE}}"
+        app_name: "{{ server_list}}"
+
+    - name: show the output 
+      debug: 
+       msg: 
+        - "{{ change_no }}"
+        - "{{ date_time }}"
+        - "{{ app_name }}" 
