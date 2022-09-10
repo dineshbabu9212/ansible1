@@ -24,7 +24,7 @@
         name: 'FROM SNOW {{ CHG_NO }}'
         state: present
         unified_job_template: "Patch"
-        rrule: "DTSTART;TZID=US/Central:{{date}}T{{time}} RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
+        rrule: "DTSTART;TZID=Asia/Kolkata:{{date}}T{{time}} RRULE:FREQ=YEARLY;INTERVAL=0;COUNT=1"
         extra_data:
           servers: "{{ APP_NAME }}"
           changeno: "{{ CHG_NO }}"
