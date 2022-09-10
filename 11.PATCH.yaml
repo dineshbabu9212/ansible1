@@ -1,25 +1,16 @@
-# ---
-#   - hosts: "{{server_list}}"
-#     tasks:
-#     - name: Patch the {{server_list}} server list
-#       package:
-#         name: httpd
-#         state: latest
-#     - name: create the file
-#       file:
-#         path: /tmp/{{APP_NAME}}{{ansible_data_time.time}}.txt
-#         state: touch
-#     - name: Fetching the output
-#       debug:
-#         msg:
-#           - "{{ APP_NAME}}
-#           - "{{ ST_DATE }}"
 ---
-  - hosts: localhost
+  - hosts: "{{APP_NAME}}"
     tasks:
-    - name: show the output
+    - name: Patch the {{APP_NAME}} server list
+      package:
+        name: vsftpd
+        state: latest
+    - name: create the file
+      file:
+        path: /tmp/{{APP_NAME}}{{ansible_data_time.time}}.txt
+        state: touch
+    - name: Fetching the output
       debug:
         msg:
-         - "{{ servers }}"
-         - "{{ changeno }}"
-#         - "{{ st_date }}"
+          - "{{ APP_NAME}}
+          - "{{ ST_DATE }}"

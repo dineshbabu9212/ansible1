@@ -29,5 +29,4 @@
           servers: "{{ APP_NAME }}"
           changeno: "{{ CHG_NO }}"
 #          st_date: "{{ST_DATE}}"
-
       register: result
