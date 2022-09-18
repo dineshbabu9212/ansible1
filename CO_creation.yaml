@@ -6,8 +6,8 @@
         username: dinesh12
         password: "Comnet@9212"
         instance: dev23907
-          state: present
-          data:
+        state: present
+        data:
             description: |
                Extend the filesystem fir the server {{ CI_NAME }}
                requetsed disk additin {{ disk_size }}
@@ -32,5 +32,5 @@
             risk: '3'
             state: '-4'
             priority: '4'
-          table: change_request
+        table: change_request
       register: output
