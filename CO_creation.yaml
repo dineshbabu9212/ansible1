@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Change creation using the SNOW RECORD modules
+      snow_record:
+        username: dinesh12
+        password: "Comnet@9212"
+        instance: dev23907
+          state: present
+          data:
+            description: |
+               Extend the filesystem fir the server {{ CI_NAME }}
+               requetsed disk additin {{ disk_size }}
+               requested task number {{ }}
+               from 4gb to 8Gb
+            short_description: " Extend the filesystem fir the server {{ CI_NAME}} from 4gb to 8Gb "
+            ci_class: "cmdb_ci"
+            cmdb_ci: "{{ CI_NAME }}"
+            start_date: '{{ ansible_date_time.date }} {{ansible_date_time.time }}'    ## convert utc to CST time  ##
+            u_backout_time: '1970-01-01 {{01:00:00 }}'
+            u_implementation_time: '1970-01-01 {{01:00:00 }}'
+            assignment_group: "Server Ops Linux "
+            assigned_to: "Dinesh shankar"
+            u_implementation_plan: |
+                login the recpective vcnter
+                add the disk from the datastore
+            u_implementation_test_plan: |
+                  vaidate .
+            u_implementation_test_results: NA
+            backout_plan: "Restore the server from backup"
+            type: 'normal'
+            risk: '3'
+            state: '-4'
+            priority: '4'
+          table: change_request
+      register: output
