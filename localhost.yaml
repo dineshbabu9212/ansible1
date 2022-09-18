@@ -1,9 +1,0 @@
----
-  - hosts: "{{CI_NAME}}"
-    tasks: 
-    - name: THIS is test for ansible and tower integration 
-      debug: 
-        msg: 
-          - This is test msg without any variable 
-          - this is test msg friom extra variables {{EX_VARS}}
-          - "{{CI_NAME}}"

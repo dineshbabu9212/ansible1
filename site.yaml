@@ -1,8 +1,0 @@
----
-- hosts: web 
-  become: yes
-  become_method: sudo
-  tasks:
-  - name: include the roles in the task 
-    include_role:
-      name: '/home/ansadmin/dev-project/roles/webserver'

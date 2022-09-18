@@ -1,8 +1,0 @@
----
-- hosts: all 
-  become: yes
-  become_method: sudo 
-  tasks: 
-  - name: setup modules
-    debug : 
-      msg: "{{ ansible_default_ipv4.address}}"

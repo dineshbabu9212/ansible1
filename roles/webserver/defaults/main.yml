@@ -1,4 +1,0 @@
----
-# defaults file for webserver
-vars:
-  port_No: 80

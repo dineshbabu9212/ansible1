@@ -1,8 +1,0 @@
----
-# handlers file for webserve
-- name: Restart httpd
-  service:
-     name: httpd
-     state: restarted
-     enabled: yes
-    
