@@ -10,5 +10,6 @@
         msg:
           - description {{des}}
           - ci name is {{CI_NAME}}
+          - "{{ des.split(' ')}}"
           - mount point is {{des.split(' ')[4]}}
           - requested additioal disk size {{des.split(' ')|last}}
