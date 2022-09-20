@@ -1,0 +1,9 @@
+---
+  - hosts: localhost
+    tasks:
+    - name: wait for the untill changed
+      debug:
+        msg:
+          - "{{ CI_NO }}"
+          - "{{ change_no }}"
+          - "{{ DES }}"
