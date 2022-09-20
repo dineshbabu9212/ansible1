@@ -5,5 +5,5 @@
       debug:
         msg:
           - "{{ CI_NO }}"
-          - "{{ change_no }}"
+          - "{{ CHG }}"
           - "{{ DES }}"
