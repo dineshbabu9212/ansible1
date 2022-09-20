@@ -13,7 +13,7 @@
                Extend the filesystem for  the server {{ CI_NAME }}  on the mouunt point {{ mount_point}}
                requetsed disk additin {{ disk_size }}
                requested task number {{TS_NO }}
-            short_description: " Extend the filesystem fir the server {{ CI_NAME}} from 4gb to 8Gb "
+            short_description: " Expand the filesystem mountpoint {{mount_point}} on server {{CI_NAME}}  to additional disksize 4"
             ci_class: "cmdb_ci"
             cmdb_ci: "{{ CI_NAME }}"
             start_date: '{{ ansible_date_time.date }} {{ansible_date_time.time }}'    ## convert utc to CST time  ##
@@ -28,7 +28,7 @@
                   vaidate .
             u_implementation_test_results: NA
             backout_plan: "Restore the server from backup"
-            type: 'normal'
+            type: 'standared'
             risk: '3'
             state: '-4'
             priority: '4'

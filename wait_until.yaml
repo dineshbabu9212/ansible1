@@ -1,9 +1,14 @@
 ---
   - hosts: localhost
+    # vars:
+    #   CI_NAME: localhost
+    #   des: "Expand the filesystem mountpoint /var on server localhost to additional disksize 4"
     tasks:
-    - name: wait for the untill changed
+
+    - name: trigger from snow
       debug:
         msg:
-          - "{{ CI_NO }}"
-          - "{{ CHG }}"
-          - "{{ des }}"
+          - description {{des}}
+          - ci name is {{CI_NAME}}
+          - mount point is {{des.split(' ')[4]}}
+          - requested additioal disk size {{des.split(' ')|last}}
