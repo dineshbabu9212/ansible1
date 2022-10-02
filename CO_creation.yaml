@@ -39,23 +39,23 @@
           - "{{ output.record['number'] }}"
 
 
-    - name: Create a simple Connector Card for mail approval
-      office_365_connector_card:
-        #webhook: https://levi.webhook.office.com/webhookb2/f2c731af-0a05-4bbf-a6e0-d3709cbb0ead@45cb9485-673d-45df-a2f0-27486343afda/IncomingWebhook/3b01d1a714134f7dab3dfe3eeca47442/51d2d3cf-536c-4ab3-8d9d-815d33a497b7
-        webhook: https://levi.webhook.office.com/webhookb2/5ffab7ed-833d-4597-b533-0681745f4f27@45cb9485-673d-45df-a2f0-27486343afda/IncomingWebhook/769caf3d9c484d3593c1c699a8a0b138/215641d8-345d-41fd-8684-0833c7c1e06d
-        summary: This is the summary property
-        title: "Request for  Change  approval for the Change : {{ output.record['number'] }}"
-        text: "{{ ansible_date_time.date }} {{ ansible_date_time.time }} {{ ansible_date_time.tz }}"
-        color: E81123
+#     - name: Create a simple Connector Card for mail approval
+#       office_365_connector_card:
+#         #webhook: https://levi.webhook.office.com/webhookb2/f2c731af-0a05-4bbf-a6e0-d3709cbb0ead@45cb9485-673d-45df-a2f0-27486343afda/IncomingWebhook/3b01d1a714134f7dab3dfe3eeca47442/51d2d3cf-536c-4ab3-8d9d-815d33a497b7
+#         webhook: https://levi.webhook.office.com/webhookb2/5ffab7ed-833d-4597-b533-0681745f4f27@45cb9485-673d-45df-a2f0-27486343afda/IncomingWebhook/769caf3d9c484d3593c1c699a8a0b138/215641d8-345d-41fd-8684-0833c7c1e06d
+#         summary: This is the summary property
+#         title: "Request for  Change  approval for the Change : {{ output.record['number'] }}"
+#         text: "{{ ansible_date_time.date }} {{ ansible_date_time.time }} {{ ansible_date_time.tz }}"
+#         color: E81123
 
-        sections:
-        - title: Change Details
-          activity_image: https://th.bing.com/th/id/OIP.n_Wwz6e0e1QKy14WP_73rgHaD8?pid=ImgDet&rs=1
-          activity_title: "{{ output.record['number']}} :  {{ output.record['short_description']}}"
-#          activity_title: "{{ chg }}"
-          activity_text: "Approve it from snow : https://dev23907.service-now.com/nav_to.do?uri=change_request.do?sysparm_query=number={{output.record['number']}}"
+#         sections:
+#         - title: Change Details
+#           activity_image: https://th.bing.com/th/id/OIP.n_Wwz6e0e1QKy14WP_73rgHaD8?pid=ImgDet&rs=1
+#           activity_title: "{{ output.record['number']}} :  {{ output.record['short_description']}}"
+# #          activity_title: "{{ chg }}"
+#           activity_text: "Approve it from snow : https://dev23907.service-now.com/nav_to.do?uri=change_request.do?sysparm_query=number={{output.record['number']}}"
 
-    - name: untill change state to implementaion plan
-      debug:
-        msg : Change has approved
-      when: output.record['state'] == '-1'
+#     - name: untill change state to implementaion plan
+#       debug:
+#         msg : Change has approved
+#       when: output.record['state'] == '-1'
